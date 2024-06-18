@@ -162,9 +162,11 @@ bool is_square_matrix(matrix* m) {
 
 
 bool are_two_matrices_equal(matrix* m1, matrix* m2) {
-    for (size_t i = 0; i < m1->n_rows; i++)
-        if (memcmp(m1->values[i], m2->values[i], m1->n_cols) != 0)
+        for (int i = 0; i < m1->n_rows; i++) {
+        if (memcmp(m1->values[i], m2->values[i], sizeof(int) * m1->n_cols) != 0) {
             return false;
+        }
+    }
     return true;
 }
 

@@ -145,7 +145,7 @@ long long int find_sum_of_maxes_of_pseudo_diagonal(matrix m) {
     int* max_value = (int*) malloc(sizeof(int) * (n + k - 1));
 
     for (int i = 0; i < n + k - 1; i++)
-        max_value[i] = (int)-1e18;
+        max_value[i] = 0;
 
     for (int i = 0; i < n; i++)
         for (int j = 0; j < k; j++)
@@ -255,11 +255,6 @@ int count_eq_classes_by_rows_sum(matrix m) {
         values[i] = get_sum(m.values[i], m.n_cols);
 
     qsort(values, m.n_rows, sizeof(long long int), cmp_long_long);
-
-
-    for (size_t i = 0; i < m.n_rows; i++)
-        printf("%lld ", values[i]);
-    printf("\n");
 
     int result = count_n_unique(values, m.n_rows);
 

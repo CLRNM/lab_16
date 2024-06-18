@@ -162,7 +162,7 @@ int get_n_special_element_2(matrix m);
 double get_scalar_product(int a[], int b[], int n);
 
 
-// возвращает длинну вектора a размера n
+// возвращает длину вектора a размера n
 double get_vector_length(int a[], int n);
 
 
