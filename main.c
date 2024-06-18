@@ -5,13 +5,15 @@
 
 
 int main() {
-    matrix a = create_matrix_from_array((int[]) {3, 5, 5, 4,
-                                                 2, 3, 6, 7,
-                                                 12, 2, 1, 2}, 3, 4);
+    matrix a = create_matrix_from_array((int[]) {1, 2, 3,
+                                                 4, 5, 6,
+                                                 7, 8, 1}, 3, 3);
 
-    int v = get_n_special_element(a);
+    position min_left = get_min_value_pos(a);
 
-    printf("%d", v);
+    swap_penultimate_row(&a, min_left.col_index);
+
+    output_matrix(&a);
 
     return 0;
 }
