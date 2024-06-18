@@ -146,7 +146,34 @@ void transpose_if_matrix_has_not_equal_sum_of_rows(matrix* m) {
 bool is_mutually_inverse_matrices(matrix m1, matrix m2) {
     matrix multi = mul_matrices(m1, m2);
 
-    if (is_E_matrix(&multi))
-        return true;
-    return false;
+    bool is_e_matrix = is_E_matrix(&multi);
+
+    free_mem_matrix(&multi);
+
+    return is_e_matrix;
+}
+
+
+// 7
+
+
+// 8
+bool value_in_area(position max, int i, int j) {
+    position new_position = {i - max.row_index, j - max.col_index};
+
+    return (new_position.row_index <= new_position.col_index) && (new_position.row_index <= -new_position.col_index);
+}
+
+
+int get_min_in_area(matrix m) {
+    position max = get_max_value_pos(m);
+
+    int min = (int) 1e18;
+
+    for (int i = 0; i <= max.row_index; i++)
+        for (int j = 0; j < m.n_cols; j++)
+            if (value_in_area(max, i, j) && m.values[i][j] < min)
+                min = m.values[i][j];
+
+    return min;
 }
