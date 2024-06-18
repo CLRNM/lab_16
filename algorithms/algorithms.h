@@ -41,4 +41,7 @@ void sort_by_distance(matrix* m);
 int count_eq_classes_by_rows_sum(matrix m);
 
 
+int get_n_special_element(matrix m);
+
+
 #endif //LAB_16_ALGORITHMS_H

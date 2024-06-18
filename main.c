@@ -5,14 +5,11 @@
 
 
 int main() {
-    matrix a = create_matrix_from_array((int[]) {7, 1,
-                                                 2, 7,
-                                                 5, 4,
-                                                 4, 3,
-                                                 1, 6,
-                                                 8, 0}, 6, 2);
+    matrix a = create_matrix_from_array((int[]) {3, 5, 5, 4,
+                                                 2, 3, 6, 7,
+                                                 12, 2, 1, 2}, 3, 4);
 
-    int v = count_eq_classes_by_rows_sum(a);
+    int v = get_n_special_element(a);
 
     printf("%d", v);
 
