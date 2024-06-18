@@ -5,14 +5,18 @@
 
 
 int main() {
-    matrix m1 = create_matrix_from_array((int[]) {1, 2, 3,
-                                                  2, 5, 6,
-                                                  3, 6, 9}, 3, 3);
+    matrix m1 = create_matrix_from_array((int[]) {3, -5,
+                                                  1, -2}, 2, 2);
 
 
-    get_square_of_matrix_if_symmetric(&m1);
+    matrix m2 = create_matrix_from_array((int[]) {2, -5,
+                                                  1, -3}, 2, 2);
 
-    output_matrix(&m1);
+    matrix res = mul_matrices(m1, m2);
+
+    output_matrix(&res);
+
+    printf("%d", is_mutually_inverse_matrices(m1, m2));
 
     return 0;
 }
