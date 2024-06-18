@@ -57,26 +57,6 @@ void sort_cols_by_min_element(matrix* m) {
 
 
 // 4
-static int get_sum_mul_array_(const int a[], const int b[], const int n) {
-    int res = 0;
-
-    for (int i = 0; i < n; i++)
-        res += a[i] * b[i];
-
-    return res;
-}
-
-
-static int* get_column(matrix* m, int j) {
-    int* res = (int*) malloc(sizeof(int) * m->n_cols);
-
-    for (int i = 0; i < m->n_rows; i++)
-        res[i] = m->values[i][j];
-
-    return res;
-}
-
-
 matrix mul_matrices(matrix m1, matrix m2) {
     if (m1.n_cols != m2.n_rows) {
         fprintf(stderr, "Different dimensions of the matrices");
@@ -84,14 +64,12 @@ matrix mul_matrices(matrix m1, matrix m2) {
     }
 
     matrix res = get_mem_matrix(m1.n_rows, m2.n_rows);
-    for (int i = 0; i < m1.n_rows; i++) {
-        for (int j = 0; j < m2.n_rows; j++) {
-            int* j_cols = get_column(&m2, j);
-            int value = get_sum_mul_array_(m1.values[i], j_cols, m1.n_cols);
-            res.values[i][j] = value;
-            free(j_cols);
+    for (int i = 0; i < m1.n_rows; i++)
+        for (int j = 0; j < m2.n_cols; j++) {
+            res.values[i][j] = 0;
+            for (int k = 0; k < m1.n_cols; k++)
+                res.values[i][j] += m1.values[i][k] * m2.values[k][j];
         }
-    }
 
     return res;
 }
@@ -334,4 +312,33 @@ void swap_penultimate_row(matrix* m, int n) {
         m->values[m->n_rows - 2][i] = temp[i];
 
     free(temp);
+}
+
+
+// 13
+bool is_non_descending_sorted(const int a[], int n) {
+    int i = 0;
+    while (i < n - 1) {
+        if (a[i] > a[i + 1])
+            return false;
+        i++;
+    }
+    return true;
+}
+
+
+bool has_all_non_descending_rows(matrix m) {
+    for (int i = 0; i < m.n_rows; i++)
+        if (!is_non_descending_sorted(m.values[i], m.n_cols))
+            return false;
+    return true;
+}
+
+
+int count_non_descending_rows_matrices(matrix ms[], int n_matrix) {
+    int amount = 0;
+    for (int i = 0; i < n_matrix; i++)
+        if (has_all_non_descending_rows(ms[i]))
+            amount++;
+    return amount;
 }
