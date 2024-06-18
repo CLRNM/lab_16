@@ -1,0 +1,9 @@
+# ninja log v6
+2	57	7403737919691519	CMakeFiles/lab_16.dir/main.c.obj	b815457c1a5d82a
+5	83	7403737919731503	CMakeFiles/lab_16.dir/data_structures/matrix/matrix.c.obj	4b68ecbd5a0ef8b7
+10	57	7403739004631655	CMakeFiles/lab_16.dir/algorithms/algorithms.c.obj	d0ad362cdef6f241
+4	58	7403739004571644	CMakeFiles/lab_16.dir/main.c.obj	b815457c1a5d82a
+7	88	7403739004601643	CMakeFiles/lab_16.dir/data_structures/matrix/matrix.c.obj	4b68ecbd5a0ef8b7
+88	153	7403739005417600	lab_16.exe	1d24bc6d4f817c24
+3	58	7403746988118031	CMakeFiles/lab_16.dir/algorithms/algorithms.c.obj	d0ad362cdef6f241
+58	131	7403746988664142	lab_16.exe	1d24bc6d4f817c24
