@@ -461,3 +461,24 @@ int get_n_special_element_2(matrix m) {
 
     return amount;
 }
+
+
+// 18
+long long int get_scalar_product_row_and_col(matrix m, int i, int j) {
+    long long int result = 0;
+
+    for (int k = 0; k < m.n_rows; k++)
+        result += m.values[i][k] * m.values[k][j];
+
+    return result;
+}
+
+
+long long int get_special_scalar_product(matrix m) {
+    position max = get_max_value_pos(m);
+    position min = get_min_value_pos(m);
+
+    long long int result = get_scalar_product_row_and_col(m, max.row_index, min.col_index);
+
+    return result;
+}

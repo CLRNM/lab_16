@@ -59,4 +59,7 @@ void print_matrix_with_min_standard(matrix ms[], int n_matrix);
 int get_n_special_element_2(matrix m);
 
 
+long long int get_special_scalar_product(matrix m);
+
+
 #endif //LAB_16_ALGORITHMS_H
