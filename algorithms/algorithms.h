@@ -34,4 +34,8 @@ long long int find_sum_of_maxes_of_pseudo_diagonal(matrix m);
 
 int get_min_in_area(matrix m);
 
+
+void sort_by_distance(matrix* m);
+
+
 #endif //LAB_16_ALGORITHMS_H
