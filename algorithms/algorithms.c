@@ -337,8 +337,53 @@ bool has_all_non_descending_rows(matrix m) {
 
 int count_non_descending_rows_matrices(matrix ms[], int n_matrix) {
     int amount = 0;
+
     for (int i = 0; i < n_matrix; i++)
         if (has_all_non_descending_rows(ms[i]))
             amount++;
+
     return amount;
+}
+
+
+// 14
+int count_values(const int a[], int n, int value) {
+    int amount = 0;
+
+    for (int i = 0; i < n; i++)
+        if (a[i] == value)
+            amount++;
+
+    return amount;
+}
+
+
+int count_zero_rows(matrix m) {
+    int amount = 0;
+
+    for (int i = 0; i < m.n_rows; i++) {
+        int amount_zero = count_values(m.values[i], m.n_cols, 0);
+        if (amount_zero == m.n_cols)
+            amount++;
+    }
+
+    return amount;
+}
+
+
+void print_matrix_with_max_zero_rows(matrix ms[], int n_matrix) {
+    int amount_zero[n_matrix];
+    int max_zero_rows = 0;
+
+    for (int i = 0; i < n_matrix; i++) {
+        int amount_zero_rows = count_zero_rows(ms[i]);
+        amount_zero[i] = amount_zero_rows;
+
+        if (amount_zero_rows > max_zero_rows)
+            max_zero_rows = amount_zero_rows;
+    }
+
+    for (int i = 0; i < n_matrix; i++)
+        if (amount_zero[i] == max_zero_rows)
+            output_matrix(ms + i);
 }
