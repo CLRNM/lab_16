@@ -20,4 +20,6 @@ matrix mul_matrices(matrix m1, matrix m2);
 
 void get_square_of_matrix_if_symmetric(matrix* m);
 
+void transpose_if_matrix_has_not_equal_sum_of_rows(matrix* m);
+
 #endif //LAB_16_ALGORITHMS_H
