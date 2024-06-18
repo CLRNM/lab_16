@@ -11,3 +11,6 @@
 12	70	7403752121807417	CMakeFiles/lab_16.dir/algorithms/algorithms.c.obj	d0ad362cdef6f241
 8	93	7403752121767479	CMakeFiles/lab_16.dir/data_structures/matrix/matrix.c.obj	4b68ecbd5a0ef8b7
 93	161	7403752122611948	lab_16.exe	1d24bc6d4f817c24
+4	56	7403754012814418	CMakeFiles/lab_16.dir/main.c.obj	b815457c1a5d82a
+9	62	7403754012864406	CMakeFiles/lab_16.dir/algorithms/algorithms.c.obj	d0ad362cdef6f241
+62	125	7403754013386123	lab_16.exe	1d24bc6d4f817c24
