@@ -5,18 +5,16 @@
 
 
 int main() {
-    matrix m1 = create_matrix_from_array((int[]) {3, -5,
-                                                  1, -2}, 2, 2);
+    matrix a = create_matrix_from_array((int[]) {7, 1,
+                                                 2, 7,
+                                                 5, 4,
+                                                 4, 3,
+                                                 1, 6,
+                                                 8, 0}, 6, 2);
 
+    int v = count_eq_classes_by_rows_sum(a);
 
-    matrix m2 = create_matrix_from_array((int[]) {2, -5,
-                                                  1, -3}, 2, 2);
-
-    matrix res = mul_matrices(m1, m2);
-
-    output_matrix(&res);
-
-    printf("%d", is_mutually_inverse_matrices(m1, m2));
+    printf("%d", v);
 
     return 0;
 }
