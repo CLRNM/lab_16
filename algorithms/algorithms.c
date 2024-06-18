@@ -463,6 +463,55 @@ int get_n_special_element_2(matrix m) {
 }
 
 
+// 17
+
+double get_scalar_product(int a[], int b[], int n) {
+    double result = 0.0;
+
+    for (int i = 0; i < n; i++)
+        result += (double) a[i] * b[i];
+
+    return result;
+}
+
+
+double get_vector_length(int a[], int n) {
+    double sum = get_scalar_product(a, a, n);
+
+    double length = sqrt(sum);
+
+    return length;
+}
+
+
+double get_cosine(int a[], int b[], int n) {
+    double scalar_product = get_scalar_product(a, b, n);
+
+    double mul_length = get_vector_length(a, n) * get_vector_length(b, n);
+
+    double cosine = scalar_product / mul_length;
+
+    return cosine;
+}
+
+
+int get_vector_index_with_max_angle(matrix m, int* b) {
+    double max_cosine = get_cosine(m.values[0], b, m.n_cols);
+    int index_max_angle = 0;
+
+    for (int i = 1; i < m.n_rows; i++) {
+        double cosine = get_cosine(m.values[i], b, m.n_cols);
+
+        if (cosine < max_cosine) {
+            max_cosine = cosine;
+            index_max_angle = i;
+        }
+    }
+
+    return index_max_angle;
+}
+
+
 // 18
 long long int get_scalar_product_row_and_col(matrix m, int i, int j) {
     long long int result = 0;
