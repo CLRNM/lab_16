@@ -11,4 +11,7 @@
 void swap_min_max_rows(matrix* m);
 
 
+void sort_rows_by_max_element(matrix* m);
+
+
 #endif //LAB_16_ALGORITHMS_H

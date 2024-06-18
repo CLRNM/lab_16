@@ -106,7 +106,7 @@ void swap_columns(matrix* m, int j1, int j2) {
 }
 
 
-void insertion_sort_rows_matrix_by_row_criteria(matrix* m, int (*criteria) (int*, int)) {
+void insertion_sort_rows_matrix_by_row_criteria(matrix* m, int (*criteria) (const int*, int)) {
     int res_criteria[m->n_rows];
 
     for (size_t i = 0; i < m->n_rows; i++)
@@ -132,7 +132,7 @@ void insertion_sort_rows_matrix_by_row_criteria(matrix* m, int (*criteria) (int*
 }
 
 
-void selection_sort_cols_matrix_by_col_criteria(matrix* m, int (*criteria) (int*, int)) {
+void selection_sort_cols_matrix_by_col_criteria(matrix* m, int (*criteria) (const int*, int)) {
     int res_criteria[m->n_cols];
 
     for (size_t i = 0; i < m->n_cols; i++) {
@@ -198,10 +198,14 @@ bool is_E_matrix(matrix *m) {
 
 
 bool is_symmetric_matrix(matrix *m) {
+    if (m->n_rows != m->n_cols)
+        return false;
+
     for (size_t i = 0; i < m->n_rows; i++)
         for (size_t j = i + 1; j < m->n_cols; j++)
             if (m->values[i][j] != m->values[j][i])
                 return false;
+
     return true;
 }
 

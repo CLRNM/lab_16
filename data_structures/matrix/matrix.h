@@ -64,11 +64,11 @@ void swap_columns(matrix* m, int j1, int j2);
 
 
 // сортирует вставками строки матрицы m по критерию criteria
-void insertion_sort_rows_matrix_by_row_criteria(matrix* m, int (*criteria) (int*, int));
+void insertion_sort_rows_matrix_by_row_criteria(matrix* m, int (*criteria) (const int*, int));
 
 
 // сортирует выборкой столбы матрицы m по критерию criteria
-void selection_sort_cols_matrix_by_col_criteria(matrix* m, int (*criteria) (int*, int));
+void selection_sort_cols_matrix_by_col_criteria(matrix* m, int (*criteria) (const int*, int));
 
 
 // возвращает true, если матрица m является квадратной
