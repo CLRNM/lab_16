@@ -56,4 +56,7 @@ void print_matrix_with_max_zero_rows(matrix ms[], int n_matrix);
 void print_matrix_with_min_standard(matrix ms[], int n_matrix);
 
 
+int get_n_special_element_2(matrix m);
+
+
 #endif //LAB_16_ALGORITHMS_H
